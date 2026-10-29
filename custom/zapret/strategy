@@ -1,5 +1,5 @@
-### Flowseal zapret-discord-youtube "general (ALT9)" for nfqws, fooling=ts replaced with md5sig
-### If something breaks, try badseq instead of md5sig
+### Flowseal zapret-discord-youtube "general (ALT9)" for nfqws
+### fooling=ts requires TCP timestamps on the client (Windows: netsh interface tcp set global timestamps=enabled)
 
 ### quic: general list
 --filter-udp=443
@@ -23,7 +23,7 @@
 --filter-tcp=2053,2083,2087,2096,8443
 --hostlist-domains=discord.media
 --dpi-desync=hostfakesplit --dpi-desync-repeats=4
---dpi-desync-fooling=md5sig
+--dpi-desync-fooling=ts
 --dpi-desync-hostfakesplit-mod=host=www.google.com
 
 ### youtube/google
@@ -32,7 +32,7 @@
 --hostlist=/usr/share/zapret/lists/list-google.txt
 --ip-id=zero
 --dpi-desync=hostfakesplit --dpi-desync-repeats=4
---dpi-desync-fooling=md5sig
+--dpi-desync-fooling=ts
 --dpi-desync-hostfakesplit-mod=host=www.google.com
 
 ### http/https: general list
@@ -43,7 +43,7 @@
 --hostlist-exclude=/usr/share/zapret/lists/list-exclude.txt
 --hostlist-exclude=/etc/storage/zapret/exclude.list
 --dpi-desync=hostfakesplit --dpi-desync-repeats=4
---dpi-desync-fooling=md5sig
+--dpi-desync-fooling=ts,md5sig
 --dpi-desync-hostfakesplit-mod=host=ozon.ru
 
 ### quic: ipset
@@ -64,7 +64,7 @@
 --hostlist-exclude=/usr/share/zapret/lists/list-exclude.txt
 --hostlist-exclude=/etc/storage/zapret/exclude.list
 --dpi-desync=hostfakesplit --dpi-desync-repeats=4
---dpi-desync-fooling=md5sig
+--dpi-desync-fooling=ts
 --dpi-desync-hostfakesplit-mod=host=ozon.ru
 
 ### games (Game Filter), disabled: all ports 1024-65535 of all clients go through nfqws
@@ -74,7 +74,7 @@
 #--ipset=/usr/share/zapret/lists/ipset-all.txt
 #--dpi-desync=hostfakesplit --dpi-desync-repeats=4
 #--dpi-desync-any-protocol=1 --dpi-desync-cutoff=n3
-#--dpi-desync-fooling=md5sig
+#--dpi-desync-fooling=ts
 #--dpi-desync-hostfakesplit-mod=host=ozon.ru
 #--new
 #--filter-udp=1024-65535

@@ -33,7 +33,9 @@ def winws_args(text):
     m = re.search(r'winws\.exe"\s+([^\r\n]+)', text)
     if not m:
         raise ValueError("winws.exe command line not found")
-    return re.findall(r'(?:[^\s"]+|"[^"]*")+', m.group(1))
+    # cmd.exe escape: ^x -> x (e.g. --dpi-desync-fake-tls=^! reaches winws as "!")
+    line = re.sub(r"\^(.)", r"\1", m.group(1))
+    return re.findall(r'(?:[^\s"]+|"[^"]*")+', line)
 
 
 def convert_arg(t, used_fakes):
@@ -128,7 +130,13 @@ def main():
     for name in sorted(used_fakes):
         shutil.copyfile(os.path.join(src, "bin", name), os.path.join(fake_dir, name))
     for name in LIST_FILES:
-        data = open(os.path.join(src, "lists", name), "rb").read().replace(b"\r\n", b"\n")
+        path = os.path.join(src, "lists", name)
+        # in the repo ipset-all.txt is a placeholder ("IPSet Filter: none"), the full list is the .backup
+        if name == "ipset-all.txt" and os.path.exists(path + ".backup") and os.path.getsize(path) < 1024:
+            path += ".backup"
+        data = open(path, "rb").read().replace(b"\r\n", b"\n")
+        if name == "ipset-all.txt" and data.count(b"\n") < 1000:
+            raise ValueError(f"{path}: ipset list looks like a placeholder")
         open(os.path.join(dst, "lists", name), "wb").write(data)
     print("fakes:", ", ".join(sorted(used_fakes)))
 

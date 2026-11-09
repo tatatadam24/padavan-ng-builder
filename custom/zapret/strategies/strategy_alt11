@@ -46,10 +46,10 @@
 --dpi-desync-split-pos=1
 --dpi-desync-fooling=ts
 --dpi-desync-repeats=8
---dpi-desync-split-seqovl-pattern=/usr/share/zapret/fake/flowseal/tls_clienthello_max_ru.bin
+--dpi-desync-split-seqovl-pattern=/usr/share/zapret/fake/flowseal/tls_clienthello_www_sferum_ru.bin
 --dpi-desync-fake-tls=/usr/share/zapret/fake/flowseal/stun2.bin
---dpi-desync-fake-tls=/usr/share/zapret/fake/flowseal/tls_clienthello_max_ru.bin
---dpi-desync-fake-http=/usr/share/zapret/fake/flowseal/tls_clienthello_max_ru.bin
+--dpi-desync-fake-tls=/usr/share/zapret/fake/flowseal/tls_clienthello_www_sferum_ru.bin
+--dpi-desync-fake-http=/usr/share/zapret/fake/flowseal/tls_clienthello_www_sferum_ru.bin
 --new
 --filter-udp=443
 --ipset=/usr/share/zapret/lists/ipset-all.txt
@@ -70,10 +70,10 @@
 --dpi-desync-split-pos=1
 --dpi-desync-fooling=ts
 --dpi-desync-repeats=8
---dpi-desync-split-seqovl-pattern=/usr/share/zapret/fake/flowseal/tls_clienthello_max_ru.bin
+--dpi-desync-split-seqovl-pattern=/usr/share/zapret/fake/flowseal/tls_clienthello_www_sferum_ru.bin
 --dpi-desync-fake-tls=/usr/share/zapret/fake/flowseal/stun2.bin
---dpi-desync-fake-tls=/usr/share/zapret/fake/flowseal/tls_clienthello_max_ru.bin
---dpi-desync-fake-http=/usr/share/zapret/fake/flowseal/tls_clienthello_max_ru.bin
+--dpi-desync-fake-tls=/usr/share/zapret/fake/flowseal/tls_clienthello_www_sferum_ru.bin
+--dpi-desync-fake-http=/usr/share/zapret/fake/flowseal/tls_clienthello_www_sferum_ru.bin
 ### games (Game Filter), disabled: remove leading # to enable
 #--new
 #--filter-tcp=1024-65535
@@ -86,12 +86,12 @@
 #--dpi-desync-split-pos=1
 #--dpi-desync-fooling=ts
 #--dpi-desync-repeats=8
-#--dpi-desync-split-seqovl-pattern=/usr/share/zapret/fake/flowseal/tls_clienthello_max_ru.bin
+#--dpi-desync-split-seqovl-pattern=/usr/share/zapret/fake/flowseal/tls_clienthello_www_sferum_ru.bin
 #--dpi-desync-fake-tls=/usr/share/zapret/fake/flowseal/stun2.bin
-#--dpi-desync-fake-tls=/usr/share/zapret/fake/flowseal/tls_clienthello_max_ru.bin
-#--dpi-desync-fake-http=/usr/share/zapret/fake/flowseal/tls_clienthello_max_ru.bin
+#--dpi-desync-fake-tls=/usr/share/zapret/fake/flowseal/tls_clienthello_www_sferum_ru.bin
+#--dpi-desync-fake-http=/usr/share/zapret/fake/flowseal/tls_clienthello_www_sferum_ru.bin
 #--dpi-desync-fake-unknown=/usr/share/zapret/fake/flowseal/stun2.bin
-#--dpi-desync-fake-unknown=/usr/share/zapret/fake/flowseal/tls_clienthello_max_ru.bin
+#--dpi-desync-fake-unknown=/usr/share/zapret/fake/flowseal/tls_clienthello_www_sferum_ru.bin
 #--new
 #--filter-udp=1024-65535
 #--ipset=/usr/share/zapret/lists/ipset-all.txt
